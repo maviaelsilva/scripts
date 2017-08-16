@@ -28,7 +28,7 @@ do
   -H 'Referer: http://lg.level3.net/bgp/lg_bgp_output.php' \
   -H 'Upgrade-Insecure-Requests: 1' \
   -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
-  -H 'Origin: http://lg.level3.net' --data "sitename=ear1.ams1&address=$PREFIX&length=$MASK" \
+  -H 'Origin: http://lg.level3.net' --data "sitename=ear1.ams1&address=$PREFIX&length=$MASK&longer=longertrue" \
   -o /tmp/level3-$PREFIX.html
 
    cat /tmp/level3-$PREFIX.html | eval "awk 'match(\$0,/[0-9 ]+ "$ASN"/) {print substr(\$0,RSTART,RLENGTH)}'" | uniq
